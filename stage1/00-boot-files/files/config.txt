@@ -49,3 +49,5 @@ otg_mode=1
 dtoverlay=dwc2,dr_mode=host
 
 [all]
+enable_uart=1
+uart_2ndstage=1
