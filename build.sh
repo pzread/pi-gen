@@ -246,7 +246,7 @@ export QUILT_REFRESH_ARGS="-p ab"
 
 export ENABLE_CLOUD_INIT=${ENABLE_CLOUD_INIT:-1}
 
-export CRYPT_ROOT_NAME="crypt-root"
+export CRYPTROOT_NAME="cryptroot"
 
 # shellcheck source=scripts/common
 source "${SCRIPT_DIR}/common"

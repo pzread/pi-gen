@@ -2,4 +2,4 @@
 +++ stage2/rootfs/boot/firmware/cmdline.txt
 @@ -1 +1 @@
 -console=serial0,115200 root=ROOTDEV rootfstype=ext4 fsck.repair=yes rootwait resize
-+console=serial0,115200 root=ROOTDEV rootfstype=ext4 fsck.repair=yes rootwait cryptdevice=CRYPT_ROOT_DEV:CRYPT_ROOT_NAME
++console=serial0,115200 root=ROOTDEV rootfstype=ext4 fsck.repair=yes rootwait cryptdevice=CRYPTROOT_DEV:CRYPTROOT_NAME
