@@ -179,7 +179,7 @@ export PI_GEN_RELEASE=${PI_GEN_RELEASE:-Raspberry Pi reference}
 
 export ARCH=arm64
 export RELEASE=${RELEASE:-trixie} # Don't forget to update stage0/prerun.sh
-export IMG_NAME="${IMG_NAME:-raspios-$RELEASE-$ARCH}"
+export IMG_NAME="${IMG_NAME:-raspios-$RELEASE-$ARCH-fde}"
 
 export USE_QEMU="${USE_QEMU:-0}"
 export IMG_DATE="${IMG_DATE:-"$(date +%Y-%m-%d)"}"
@@ -245,6 +245,8 @@ export QUILT_NO_DIFF_TIMESTAMPS=1
 export QUILT_REFRESH_ARGS="-p ab"
 
 export ENABLE_CLOUD_INIT=${ENABLE_CLOUD_INIT:-1}
+
+export CRYPT_ROOT_NAME="crypt-root"
 
 # shellcheck source=scripts/common
 source "${SCRIPT_DIR}/common"

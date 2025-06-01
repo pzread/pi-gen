@@ -47,7 +47,8 @@ done
 
 ensure_loopdev_partitions "$LOOP_DEV"
 BOOT_DEV="${LOOP_DEV}p1"
-ROOT_DEV="${LOOP_DEV}p2"
+CRYPT_ROOT_DEV="${LOOP_DEV}p2"
+ROOT_DEV="/dev/mapper/${CRYPT_ROOT_NAME}"
 
 ROOT_FEATURES="^huge_file"
 for FEATURE in 64bit; do
@@ -63,6 +64,9 @@ else
 fi
 
 mkdosfs -n bootfs -F "$FAT_SIZE" -s 4 -v "$BOOT_DEV" > /dev/null
+
+cryptsetup luksFormat --type luks2 "${CRYPT_ROOT_DEV}"
+cryptsetup open "${CRYPT_ROOT_DEV}" "${CRYPT_ROOT_NAME}"
 mkfs.ext4 -L rootfs -O "$ROOT_FEATURES" "$ROOT_DEV" > /dev/null
 
 mount -v "$ROOT_DEV" "${ROOTFS_DIR}" -t ext4

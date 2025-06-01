@@ -102,6 +102,8 @@ ROOT_DEV="$(awk "\$2 == \"${ROOTFS_DIR}\" {print \$1}" /etc/mtab)"
 unmount "${ROOTFS_DIR}"
 zerofree "${ROOT_DEV}"
 
+cryptsetup close "${ROOT_DEV}"
+
 unmount_image "${IMG_FILE}"
 
 if hash bmaptool 2>/dev/null; then
